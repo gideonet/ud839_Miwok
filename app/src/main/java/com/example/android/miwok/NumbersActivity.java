@@ -30,18 +30,12 @@ public class NumbersActivity extends AppCompatActivity {
         // Find the root view of whole layout
         LinearLayout rootView = (LinearLayout) findViewById(R.id.rootView);
 
-        //Create a loop to diaplay the list
-        int count = 0;
-
-        while (count < words.size()) {
+        for (int count = 0; count < words.size(); count++) {
 
             //display the word from list
             TextView wordView = new TextView(this);
             wordView.setText(words.get(count));
             rootView.addView(wordView);
-
-            //update counter
-            count++;
 
         }
 
