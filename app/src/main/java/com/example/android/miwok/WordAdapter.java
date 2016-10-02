@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
      * to populate into the lists.
      *
      * @param context        The current context. Used to inflate the layout file.
-     * @param androidFlavors A List of AndroidFlavor objects to display in a list
+     * @param words A List of Word objects to display in a list
      */
     public WordAdapter(Activity context, ArrayList<Word> words) {
         // Here, we initialize the ArrayAdapter's internal storage for the context and the list.
@@ -34,8 +35,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        // Get the {@link Word} object located at this position in the list
-        Word currentWord = getItem(position);
+
 
         //check if the existing view is being reused, otherwise inflate the view
         View listItemView = convertView;
@@ -43,6 +43,9 @@ public class WordAdapter extends ArrayAdapter<Word> {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.list_item, parent, false);
         }
+
+        // Get the {@link Word} object located at this position in the list
+        Word currentWord = getItem(position);
 
         // Find the TextView in the list_item.xml layout with the ID version_name
         TextView defaultTextView = (TextView) listItemView.findViewById(R.id.default_text_view);
@@ -55,6 +58,12 @@ public class WordAdapter extends ArrayAdapter<Word> {
         // Get the version name from the current Word object and
         // set this text on the name TextView
         miwokTextView.setText(currentWord.getMiwokTranslation());
+
+        // Find the ImageView in the list_item.xml layout with the ID list_item_icon
+        ImageView iconView = (ImageView) listItemView.findViewById(R.id.miwok_image_view);
+        // Get the image resource ID from the current AndroidFlavor object and
+        // set the image to iconView
+        iconView.setImageResource(currentWord.getImageResourceId());
 
         // Return the whole list item layout (containing 2 TextViews)
         // so that it can be shown in the ListView
