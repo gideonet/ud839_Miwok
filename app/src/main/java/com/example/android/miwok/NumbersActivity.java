@@ -27,14 +27,20 @@ public class NumbersActivity extends AppCompatActivity {
         words.add("nine");
         words.add("ten");
 
+        // Find the root view of whole layout
+        LinearLayout rootView = (LinearLayout) findViewById(R.id.rootView);
+
+        //Create a loop to diaplay the list
         int count = 0;
 
-        while (count < 10) {
-            LinearLayout rootView = (LinearLayout) findViewById(R.id.rootView);
+        while (count < words.size()) {
+
+            //display the word from list
             TextView wordView = new TextView(this);
             wordView.setText(words.get(count));
             rootView.addView(wordView);
 
+            //update counter
             count++;
 
         }
