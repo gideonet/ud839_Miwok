@@ -8,7 +8,8 @@ public class Word {
 
     private String mMiwok_Translation;
     private String mDefault_Translation;
-    private int mImageResourceId;
+    private int mImageResourceId = NO_IMAGE_PROVIDED;
+    private static final int NO_IMAGE_PROVIDED = -1;
 
     /**Miwok translation constructor
      *@param Miwok
@@ -39,5 +40,10 @@ public class Word {
     //Get Image Resource ID
     public int getImageResourceId() {
         return mImageResourceId;
+    }
+
+    //Returns whether or not there is an image
+    public boolean hasImage() {
+        return mImageResourceId != NO_IMAGE_PROVIDED;
     }
 }
