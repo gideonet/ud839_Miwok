@@ -61,7 +61,12 @@ public class PhrasesActivity extends AppCompatActivity {
         });
 
     }
-
+    @Override
+    protected void onStop() {
+        super.onStop();
+        // when activity is stopped, release media player
+        releaseMediaPlayer();
+    }
     /**
      * Clean up the media player by releasing its resources.
      */
