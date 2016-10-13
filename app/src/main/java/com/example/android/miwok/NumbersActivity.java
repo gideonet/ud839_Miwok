@@ -61,6 +61,7 @@ public class NumbersActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.word_lists);
 
         //Create and setup the (@link AudioManager} to request audio focus
